@@ -38,7 +38,10 @@ FN-LLM基于先进的大语言模型架构，通过以下技术优化：
 ### 模型开源
 
 huggingface：https://huggingface.co/fnholding/FN-LLM/tree/main
-
+安装环境
+  ```
+pip install -r requirements.txt
+  ```
 infer.py 基于huggingface/transformers进行推理；
 
 支持ollama 部署，gguf格式模型:
