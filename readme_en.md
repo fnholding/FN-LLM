@@ -1,6 +1,6 @@
 # FN-LLM - Agricultural Q&A Large Model by Fengnong AI
 
-[中文](README.md)
+[English](readme_en.md) | [中文](readme.md)
 
 ### News
 
@@ -33,6 +33,11 @@ FN-LLM is based on advanced LLM architecture with optimizations:
 
 ### Open-Source Models
 - Hugging Face: [https://huggingface.co/fnholding/FN-LLM/tree/main](https://huggingface.co/fnholding/FN-LLM/tree/main)
+
+```
+pip install -r requirements.txt 
+python infer.py 
+  ```
 
 - GGUF format for Ollama deployment: [https://huggingface.co/fnholding/FN-LLM-GGUF](https://huggingface.co/fnholding/FN-LLM-GGUF)
 

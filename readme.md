@@ -1,6 +1,6 @@
 ## 丰农AI大模型-农业问答大模型（FN-LLM）
 
-[English](README_EN.md)
+[English](readme_en.md) | [中文](readme.md)
 
 ### news
 
@@ -38,11 +38,13 @@ FN-LLM基于先进的大语言模型架构，通过以下技术优化：
 ### 模型开源
 
 huggingface：https://huggingface.co/fnholding/FN-LLM/tree/main
-安装环境
+infer.py 基于huggingface/transformers进行推理； 
+
   ```
-pip install -r requirements.txt
+pip install -r requirements.txt #安装环境
+python infer.py #模型推理
   ```
-infer.py 基于huggingface/transformers进行推理；
+
 
 支持ollama 部署，gguf格式模型:
 https://huggingface.co/fnholding/FN-LLM-GGUF;
