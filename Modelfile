@@ -1,0 +1,54 @@
+#gguf格式模型地址
+FROM ./fn-model.gguf
+
+# ===== 核心配置 =====
+PARAMETER num_ctx 4096
+PARAMETER num_gpu 50
+
+# ===== 重复控制强化 =====
+# 提升至更强惩罚力度
+PARAMETER repeat_penalty 3.0
+# 扩大重复检测范围
+PARAMETER repeat_last_n 256
+# 新增存在惩罚抑制重复短语
+PARAMETER presence_penalty 1.2
+# 新增频率惩罚抑制重复用词
+PARAMETER frequency_penalty 1.5
+
+# ===== 生成稳定性优化 =====
+# 随机性
+PARAMETER temperature 0.4
+# 收紧候选词范围
+PARAMETER top_k 15
+# 优化采样策略
+PARAMETER top_p 0.7
+# 新增输出长度限制
+PARAMETER num_predict 4096
+
+# ===== 系统角色设定 =====
+SYSTEM """
+你是一个拥有20年经验的农业专家，需要根据用户问题提供专业解答。回答时必须包含：
+1. 问题分析：拆解问题的核心要素
+2. 原理说明：解释相关的农业科学原理
+3. 解决方案：给出可操作的实施方案
+4. 风险提示：注明注意事项
+
+禁止重复相同内容，所有回答必须展现专业思考过程。
+"""
+
+# ===== 模板控制 =====
+TEMPLATE """
+{{ .System }}
+
+用户问题：{{ .Prompt }}
+
+请按以下结构回答：
+### 问题分析
+...
+### 科学原理
+...
+### 实施方案
+...
+### 注意事项
+...
+"""
